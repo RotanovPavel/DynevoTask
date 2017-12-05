@@ -1,0 +1,174 @@
+@fa_path: "../../bower_components/font-awesome/less";
+@import "@{fa_path}/variables.less";
+@import "@{fa_path}/mixins.less";
+@import "@{fa_path}/path.less";
+@import "@{fa_path}/core.less";
+@import "@{fa_path}/icons.less";
+@import '../../bower_components/bootstrap/less/bootstrap.less';
+@import 'fonts.less';
+@import 'variables.less';
+
+.top-block {
+
+  .navbar {
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(to bottom, #f9572d 50%, #e93315);
+  }
+
+  .navbar-default {
+
+
+    height: @topHeight;
+
+    .row {
+      width: @topWidth;
+      height: @topHeight;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%); // выравнивание по центру
+
+      .navbar-header {
+
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .navbar-brand {
+          height: auto;
+          float: left;
+          padding: 0;
+
+        }
+        .logo {
+
+          color: #fff;
+          font-family: "ChelseaMarketRegular";
+          font-style: normal;
+          font-size: 30px;
+
+          & > img {
+            display: inline;
+            padding-right: 5px;
+
+          }
+          & > p {
+            display: inline;
+
+          }
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      .navbar-collapse {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-right: 0;
+        padding-left: 0;
+        & a {
+          color: white;
+          font-family: 'ChelseaMarketRegular';
+          font-size: 12px;
+
+        }
+
+        .navbar-nav>li>a {
+          padding-left: 15px;
+        }
+        .navbar-right>li>a{
+          padding-left: 10px;
+        }
+        .button {
+          width: 34px;
+          height: 34px;
+          background: linear-gradient(to bottom, #f9572d 50%, #e93315);
+          border-radius: 3px;
+          border: 1px solid #ed3e1d;
+
+          //border-color: #ed3e1d;
+          color: white;
+          margin-right: 10px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 12px;
+        }
+        .button-item {
+          background: linear-gradient(to bottom, #f9572d 50%, #e93315);
+          border: 1px solid #e93315;
+          border-radius: 50%;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          content: "0";
+          height: 15px;
+          left: 36px;
+          // position: relative;
+          top: 10px;
+          width: 15px;
+        }
+
+      }
+    }
+  }
+}
+
+.middle-block {
+  .navbar {
+    background: url(/assets/img/mid_bg.png) repeat 0 0;
+    margin-bottom: 0;
+    border: 0;
+    height: 70px;
+    .row {
+      width: @topWidth;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%); // выравнивание по центру
+      .navbar-collapse {
+
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+    }
+  }
+}
+footer.footer {
+  height: 70px;
+  background-color: #464646;
+
+  .pull-left {
+    margin-top: 5px;
+
+    img {
+      margin-right: 11px;
+      margin-left: 1px;
+    }
+
+    span {
+      opacity: 0.4;
+      color: #ffffff;
+      font-size: 13px;
+
+    }
+  }
+
+  .pull-right {
+    a {
+      color: #ffffff;
+      font-weight: normal;
+      opacity: 0.85;
+      margin-left: 28px;
+      font-size: 14px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+

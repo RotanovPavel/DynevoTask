@@ -1,0 +1,20 @@
+{
+  "name": "dinevotask",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ODDpavel <rotanov.pavel@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
