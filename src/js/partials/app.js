@@ -1,3 +1,5 @@
-/**
- * Created by ODD on 29.11.2017.
- */
+$(document).ready(function () {
+    $('#laptops').click(function () {
+        $('.dropdown-menu').slideToggle("slow");
+    })
+});

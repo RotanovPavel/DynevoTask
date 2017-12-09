@@ -49,7 +49,7 @@ gulp.task('font', function() {
 });
 
 gulp.task('fa-font', function () {
-    return gulp.src('node_modules/font-awesome/fonts/*')
+    return gulp.src('bower_components/font-awesome/fonts/*')
         .pipe(gulp.dest(assetsDir + 'fonts'))
         .pipe(connect.reload());
 });
