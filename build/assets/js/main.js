@@ -12633,29 +12633,29 @@ if (typeof jQuery === 'undefined') {
 
 
 
-$(document).ready(function () {
+ //$(document).ready(function () {
 
 
 
-    $('#laptops').click(function () {
+  //  $('#laptops').click(function () {
 
 
 
-        $('.dropdown-menu').slideToggle("slow");
+   //     $('.dropdown-menu').slideToggle("slow");
 
 
 
-    })
+  //  })
 
 
 
-});
+// });
 
 
 
 
-$(document).ready(function () {
-    $('#laptops').click(function () {
-        $('.dropdown-menu').slideToggle("slow");
-    })
-});
+ //$(document).ready(function () {
+  //  $('#laptops').click(function () {
+   //     $('.dropdown-menu').slideToggle("slow");
+  //  })
+// });
