@@ -7,6 +7,7 @@
 @import '../../bower_components/bootstrap/less/bootstrap.less';
 @import 'fonts.less';
 @import 'variables.less';
+@import 'sections/carousel.less';
 
 .top-block {
   background: linear-gradient(to bottom, #f9572d 70%, #e93315);
@@ -19,6 +20,20 @@
     @media (min-width: 768px) {
       height: @topHeight;
       width: @pageWidth;
+    }
+    @media (max-width: 940px) {
+      width: auto;
+      margin-left: 15px;
+
+    }
+    @media (max-width: 768px) {
+      width: auto;
+      margin-left: -15px;
+      padding-left: 15px;
+
+    }
+    .navbar-toggle:focus {
+      background-color: transparent;
     }
   }
 
@@ -39,6 +54,10 @@
       .navbar-brand {
         padding: 0;
         float: left;
+        @media (max-width: 768px) {
+          padding-left: 15px;
+          padding-top: 5px;
+        }
       }
 
       .logo {
@@ -46,16 +65,16 @@
           position: relative;
           top: 50%;
           transform: translateY(-50%);
+
         }
         & > h5 {
           display: inline-block;
           margin-top: 18px;
-          @media (max-width: 797px) {
-            font-size: 12px;
-          }
-          @media (max-width: 400px) {
+          @media (max-width: 840px) {
             display: none;
+
           }
+
         }
         & > p {
           display: inline-block;
@@ -74,15 +93,15 @@
     }
 
     .navbar-collapse {
-      padding-right: 0;
-      padding-left: 0;
+      padding: 0;
+      @media (max-width: 768px) {
+        padding-left: 15px;
+      }
       & a {
         color: white;
         font-family: 'telegrafico', sans-serif;
         font-size: 14px;
-        @media (max-width: 797px) {
-          font-size: 12px;
-        }
+
       }
       .navbar-nav > li > a {
         padding-left: 20px;
@@ -90,21 +109,34 @@
           color: #fff;
         }
       }
+      .navbar-right {
+
+        @media (min-width: 768px) {
+          margin-right: 0;
+        }
+        @media (max-width: 768px) {
+         width: 100%;
+        }
+      }
       .navbar-right > li > a {
         padding-left: 15px;
         padding-right: 0;
+
       }
       .button {
         position: relative;
         width: 34px;
         height: 34px;
-        background: linear-gradient(to top, #f9572d 50%, #e93315);
+        background: linear-gradient(to top, #e94722 40%, #fd5f37);
         border-radius: 4px;
         border: 1px solid #ed3e1d;
         margin: 10px 23px 0 20px;
         color: white;
         display: inline-block;
         font-size: 12px;
+        box-shadow: inset 0 1px 0 0 #fe8853;
+        -moz-box-shadow: inset 0 1px 0 0 #fe8853;
+        -webkit-box-shadow: inset 0 1px 0 0 #fe8853;
       }
       .circle-button {
         position: absolute;
@@ -131,27 +163,87 @@
   background: url(/assets/img/bg-mid.png) repeat 0 0;
 
   .navbar {
-    background: linear-gradient(to bottom, #fbf2d3 90%, #f0e8ce 10%); ;
+    background: linear-gradient(to bottom, #fbf2d3 90%, #f0e8ce 10%);
     margin: 0 auto;
     @media (min-width: 768px) {
       height: @middleHeight;
       width: @pageWidth;
       background: url(/assets/img/bg-mid.png) repeat 0 0;
     }
+
+    @media (max-width: 940px) {
+
+      width: auto;
+      margin-left: 0;
+      padding-left: 15px;
+
+    }
+    @media (max-width: 768px) {
+      width: auto;
+      margin-left: -15px;
+
+    }
     border: 0;
     border-radius: 0;
 
     z-index: 999;
+    .navbar-toggle:focus {
+      background-color: transparent;
+    }
 
     .navbar-collapse {
       height: 100% !important;
       padding: 0;
+      @media (max-width: 768px) {
+        padding-left: 15px;
+      }
 
       .navbar-left {
         height: 100%;
+        width: 100%;
+        @media (min-width: 768px) {
+          display: inline-flex;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+        }
         & li {
-          height: 100%;
+          @media (max-width: 768px) {
+          width: 100%;
+        }
+          @media (min-width: 768px) {
+            left: -40px;
+          }
 
+          height: 100%;
+        }
+        & a {
+          margin: 0;
+          padding: 24px 0 0 0;
+          @media (max-width: 768px) {
+            padding-left: 15px;
+          }
+
+        }
+        & .desk {
+          padding-left: 0;
+          @media (max-width: 768px) {
+            padding-left: 15px;
+          }
+        }
+
+        .dropdown-menu {
+          @media (max-width: 768px) {
+            position: static;
+            margin-top: 10px;
+          }
+          & a {
+            width: auto;
+            padding: 0 15px 0 15px;
+            margin: 0 5px 5px 5px;
+            @media (max-width: 768px) {
+              padding-bottom: 5px;
+            }
+          }
         }
       }
       & a {
@@ -168,6 +260,7 @@
         &:visited {
           color: @middleColor;
         }
+
         & > img {
 
           margin-right: 13px;
@@ -175,153 +268,205 @@
         }
 
       }
+
       .caret {
         display: none;
-      }
-    }
-    .navbar-left > li > a {
-      margin: 0;
-      padding: 24px 19px 0 20px;
-      & > .desk {
-        padding-left: 0;
       }
     }
 
   }
   .navbar-default .navbar-nav > .open > a {
     display: block;
-    height: 100%;
+    // height: 100%;
     background: linear-gradient(to bottom, #f0e4b8, #fbf2d3); //f7edc9
 
   }
-  .dropdown {
-    height: 100%;
-  }
+
   .navbar-nav > li > .dropdown-menu {
     position: absolute;
-    width: 170px;
-    left: -1px;
+    width: 100%;
     top: 69px;
     margin-top: 0;
-    padding-right: 0;
-    padding-left: 0;
+    padding: 0;
     background-color: #fbf2d3;
     font-size: 14px;
     border-color: transparent;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .175);
+
     & a:hover {
       background-color: #f9572d;
       border-radius: 13px;
       color: #fff;
+
+    }
+    & li > a {
+      padding: 0 19px 0 20px;
     }
   }
 
 }
 
-.bottom-block {
+
+.bottom-block{
   background: linear-gradient(to bottom, #f9f9f9 90%, #f1f1f1 10%);
-  //height: @middleHeight;
-  .navbar {
+
+  .container {
+    margin: 0 auto;
+
     @media (min-width: 768px) {
       height: @middleHeight;
       width: @pageWidth;
-    }
-    margin: 0 auto 0 auto;
-    border: 0;
-    border-radius: 0;
-    background: linear-gradient(to bottom, #f9f9f9 90%, #f1f1f1 10%);
-    .navbar-header {
-      @media (min-width: 360px) {
-        font-size: 12px;
-      }
       padding: 0;
-
-
-
-      & a {
-        font-family: "TerminalDosis Book", sans-serif;
-        font-size: 14px;
-        padding: 15px 0;
-        color: #999792;
-        @media (max-width: 360px) {
-        font-size: 12px;
-      }
-
-      }
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
     }
-    .navbar-collapse {
-      padding-right: 0;
+    @media (max-width: 940px) {
+      width: auto;
+      margin-left: 15px;
 
-      .navbar-nav{
-        margin: 0 0 0 150px;
-
-
-      }
-      .navbar-nav > li > a {
-          padding: 15px 5px;
-        color: #999792;
-
-      }
     }
-    .navbar-form {
-      padding: 0;
+    @media (max-width: 768px) {
+
+      margin-left: 0;
+
+    }
 
 
-      & p {
-
+    .bottom-left-block {
+    display: inline-block;
+      height: 100%;
+      @media (max-width: 768px) {
+        display: block;
         float: left;
+        width: 100%;
+      }
+      h5 {
         margin: 0;
-        padding-top: 3px;
-        padding-right: 3px;
         font-family: "TerminalDosis Book", sans-serif;
         font-size: 14px;
+
         color: #999792;
         @media (max-width: 768px) {
-          display: none;
+          display: block;
+          margin: 10px auto;
         }
       }
-      .form-control {
-        height: 26px;
-        width: 135px;
-        margin-right: 5px;
-        padding-left: 5px;
-        font-family: "TerminalDosis Book", sans-serif;
-        font-size: 13px;
-        border-left-color: #8c8c8c;
-        border-top-color: #8c8c8c;
-        border-right-color: #ddd;
-        border-bottom-color: #ddd;
-        @media (max-width: 768px) {
-          margin: 5px 0 0 5px;
-        }
-        &:focus {
-          border-left-color: #ddd;
-          border-top-color: #ddd;
-          border-right-color: #8c8c8c;
-          border-bottom-color: #8c8c8c;
-        }
+    }
 
 
+    .bottom-center-block {
+      height: 100%;
+      display: inline-block;
+      margin: 0 auto;
+
+      @media (max-width: 768px) {
+        display: block;
+        float: left;
+        width: 100%;
       }
-      .pass {
-        width:145px;
+      li {
+        list-style-type: none;
         display: inline;
-      }
-      .btn {
-        height: 26px;
-        width: 28px;
-        margin-right: 19px;
-        background: linear-gradient(to bottom, #e1dedc 20%, #a2a2a2);
-        display: inline-block;
-        position: relative;
-        padding: 0 9px;
+        margin-right: 5px;
+        padding: 3px;
 
+        a {
+          color: #999792;
+        }
+      }
+      ul {
+        margin-left: 0;
+        padding-left: 0;
+        position: relative;
+
+
+      }
+    }
+    .bottom-right-block {
+      height: 100%;
+      display: inline-block;
+      @media (max-width: 768px) {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 100%;
+      }
+      float: right;
+      .bottom-form {
+        p {
+          display: inline-block;
+          float: left;
+          margin: 0;
+          padding-top: 6px;
+          padding-right: 3px;
+          font-family: "TerminalDosis Book", sans-serif;
+          font-size: 14px;
+          color: #999792;
+          @media (max-width: 768px) {
+            display: block;
+            float: left;
+            width: 100%;
+          }
+        }
+        .form-group {
+          display: inline-block;
+          @media (max-width: 768px) {
+            display: block;
+            float: left;
+            width: 100%;
+          }
+
+
+          .form-control {
+            display: inline-block;
+
+            height: 26px;
+            width: 135px;
+            margin-right: 5px;
+            padding-left: 5px;
+            font-family: "TerminalDosis Bognok", sans-serif;
+            font-size: 13px;
+            @media (max-width: 768px) {
+              display: block;
+              float: left;
+              width: 100%;
+              margin: 5px 0;
+            }
+            .pass {
+              width: 145px;
+              display: inline-block;
+              @media (max-width: 768px) {
+                display: block;
+                float: left;
+                width: 100%;
+              }
+            }
+          }
+        }
+        .btn {
+          height: 26px;
+          width: 28px;
+          margin-right: 0;
+          background: linear-gradient(to bottom, #e1dedc 20%, #a2a2a2);
+          display: inline-block;
+          position: relative;
+          padding: 0 9px;
+          @media (max-width: 980px) {
+            margin-right: 15px;
+          }
+          @media (max-width: 768px) {
+            display: block;
+            float: left;
+            width: 100%;
+          }
+
+        }
       }
     }
   }
+
 }
-
-
 //footer.footer {
 //
 //  height: 70px;
@@ -383,5 +528,17 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+}
+
+.navbar-right {
+  @media (min-width: 768px) {
+    margin-right: 0;
+  }
+}
+
+.navbar-collapse {
+  @media (max-width: 768px) {
+    padding-left: 15px;
   }
 }
