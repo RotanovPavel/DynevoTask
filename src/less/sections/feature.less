@@ -1,0 +1,97 @@
+.feature {
+  .container {
+    height: 427px;
+    width: 940px;
+    margin: 50px auto 0;
+    padding: 0;
+    @media (max-width: 940px) {
+      width: 100%;
+      padding: 0 15px;
+    }
+    @media (max-width: 575px) {
+      padding-top: 20px;
+    }
+
+    .feature-top {
+      height: 27px;
+      width: 100%;
+      display: inline-block;
+
+      .feature-top-left {
+        float: left;
+
+        display: inline-block;
+        height: 100%;
+        font-family: 'Telegrafico', sans-serif;
+        font-size: 16px;
+        color: #737171;
+
+        p {
+          margin: 0;
+        }
+
+      }
+      .feature-top-center {
+        height: 100%;
+        display: inline-block;
+        width: 88%;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        border: none;
+        padding-top: 5px;
+        color: #edeae6;
+        background-color: transparent;
+
+        text-align: right;
+        margin: 0 ;
+
+        //background: url(/assets/img/featured_line.png) repeat 0 0;
+        hr {
+          margin: 2px;
+        }
+
+      }
+      .feature-top-right {
+        display: inline-block;
+        float: right;
+        .button {
+          position: relative;
+          width: 27px;
+          height: 27px;
+          background: linear-gradient(to top, #e94722 20%, #fd5f37);
+          border-radius: 3px;
+          border: 1px solid #ed3e1d;
+          margin: 0;
+          color: white;
+          display: inline-block;
+          font-size: 12px;
+          box-shadow: inset 0 1px 0 0 #fe8853;
+          -moz-box-shadow: inset 0 1px 0 0 #fe8853;
+          -webkit-box-shadow: inset 0 1px 0 0 #fe8853;
+        }
+      }
+    }
+    .feature-bottom {
+      margin-top: 40px ;
+      @media (max-width: 940px) {
+
+      }
+      .item-box {
+        height: 270px;
+        width: 220px;
+        background-color: #d9d9d9;
+        margin-right: 16px;
+        display: inline-flex;
+        border: 1px solid #bcbcbc;
+        border-radius: 1px ;
+        &:last-child {
+          margin-right: 0;
+        }
+
+      }
+    }
+  }
+}

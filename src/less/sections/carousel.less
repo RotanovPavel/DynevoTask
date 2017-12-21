@@ -1,3 +1,5 @@
+@import '../variables.less';
+
 .carousel {
   // background: url(/assets/img/bg_carousel.png) repeat 0 0;
   .container {
@@ -6,9 +8,9 @@
     margin: 0 auto;
     padding: 20px 0 0 0;
     img {
-        max-width: 100%;
-        height: auto;
-        width: auto;
+      max-width: 100%;
+      height: auto;
+      width: auto;
     }
     @media (max-width: 940px) {
       height: auto;
@@ -16,40 +18,67 @@
       margin-right: 15px;
       margin-left: 15px;
     }
-
+    .carousel-inner {
+      .carousel-caption {
+        p {
+          display: none;
+        }
+      }
+    }
     .bottom-cont {
       background: linear-gradient(to bottom, #93d3d1 90%, #8dcbc9 10%);
       height: 75px;
       width: 100%;
       padding: 0 20px;
-      @media (max-width: 768px) {
-        height: 60px;
+      @media (max-width: 767px) {
+        height: 50px;
         width: auto;
-
+      }
+      @media (max-width: 575px) {
+        text-align: center;
+        padding: 0;
+      }
+      @media (max-width: 500px) {
+        height: 40px;
+        background: linear-gradient(to bottom, #93d3d1 90%, #8dcbc9 10%);
       }
 
       .carousel-bottom-left {
         display: inline-block;
         height: 100%;
+
         .carousel-indicators {
           left: 6%;
           position: relative;
           bottom: 0;
           width: 100%;
           margin: 0;
+
           li {
             border: 2px solid #fff;
             width: 10px;
             height: 10px;
+            &:active {
+              margin: 1px;
+              background-color: #fff;
+            }
           }
           .active {
             margin: 1px;
           }
+
         }
       }
-      .bottom-center-right {
-        float: right;
+      .center-right-box {
         height: 100%;
+        display: inline-block;
+        float: right;
+        @media (max-width: 575px) {
+          height: 50px;
+          width: 100%;
+          background: linear-gradient(to bottom, #93d3d1 90%, #8dcbc9 10%);
+
+        }
         .carousel-bottom-center {
 
           display: inline-block;
@@ -57,14 +86,19 @@
           font-family: 'TerminalDosis Book', sans-serif;
           font-size: 16px;
           color: #fff;
-          @media (max-width: 550px){
-            display: none;
-          }
+
         }
         .carousel-bottom-right {
           float: right;
+          right: 10px;
           height: 100%;
           margin-left: 15px;
+          @media (max-width: 575px) {
+            height: 50px;
+            width: 100%;
+            background: linear-gradient(to bottom, #93d3d1 90%, #8dcbc9 10%);
+
+          }
           .btn {
             width: 80px;
             height: 35px;
@@ -93,6 +127,7 @@
             }
 
           }
+
         }
       }
     }
