@@ -311,22 +311,22 @@
                         <p>Childish Gambino - Camp Now Available for just $5.55</p>
                     </div>
                 </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
 
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+
+                </a>
             </div>
 
-            <!-- Left and right controls -->
-            <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">-->
 
-            <!--</a>-->
-            <!--<a class="right carousel-control" href="#myCarousel" data-slide="next">-->
 
-            <!--</a>-->
 
             <div class="bottom-cont">
                 <div class="carousel-bottom-left ">
                     <!--<div class=" carousel slide v-align-m">-->
                     <ol class="carousel-indicators v-align-m v-align-s">
-                        <li data-target="#myCarousel" data-slide-to="0"></li>
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                         <li data-target="#myCarousel" data-slide-to="3"></li>
@@ -337,7 +337,7 @@
                 <div class="center-right-box">
                     <div class="carousel-bottom-center v-align-m v-align-s">
 
-                        <p class="v-align-m v-align-s"> </p>
+                        <p class="v-align-m v-align-s" style="display: none"> </p>
                     </div>
                     <div class="carousel-bottom-right ">
                         <button class="btn v-align-m v-align-s"><p>purchase</p></button>
@@ -362,24 +362,134 @@
             </div>
             <div class="feature-top-center">
                 <!--<img src="/assets/img/featured_line.png">-->
-                <hr>
-                <hr>
-                <hr>
-                <hr>
+                <div class="feature-line"></div>
+                <div class="feature-line"></div>
+                <div class="feature-line"></div>
+                <div class="feature-line"></div>
             </div>
 
             <div class="feature-top-right">
-                <button id="btn-feature" class="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                <button id="btn-feature" class="button" data-toggle="collapse" data-target="#feature"><i
+                        class="fa fa-minus" aria-hidden="true"></i></button>
             </div>
         </div>
-        <div class="feature-bottom">
-            <div class="item-box"></div>
-            <div class="item-box"></div>
-            <div class="item-box"></div>
-            <div class="item-box"></div>
+        <div id="feature" class="feature-bottom  collapse in">
+            <div class="col-feature col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                <div  class="item-box ">
+                    <div class="img-feature">
+                        <div class="img-button">
+                            <button class="btn-compare">Add to Compare</button>
+                            <button class="btn-compare">Add to Wishlist</button>
+                        </div>
+                        <img src="/assets/img/product_sections/Kitty_205x178.png"></div>
+                    <div class="prod-name">Mascot Kitty - White</div>
+                    <div class="prod-info">
+                        <button class="btn"><p>ADD TO CARD</p></button>
+                        <div class="price">
+                            <div class="price-left">$</div>
+                            <div class="price-middle">2</div>
+                            <div class="price-right">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-feature col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                <div  class="item-box ">
+                    <div class="img-feature"><img src="/assets/img/product_sections/Bite_205x178.png"></div>
+                    <div class="prod-name">Bite Me</div>
+                    <div class="prod-info">
+                        <button class="btn"><p>ADD TO CARD</p></button>
+                        <div class="price">
+                            <div class="price-left">$</div>
+                            <div class="price-middle">3</div>
+                            <div class="price-right">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-feature col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                <div  class="item-box ">
+                    <div class="img-feature"><img src="/assets/img/product_sections/Fella_205x178.png"></div>
+                    <div class="prod-name">Little Fella</div>
+                    <div class="prod-info">
+                        <button class="btn"><p>ADD TO CARD</p></button>
+                        <div class="price">
+                            <div class="price-left">$</div>
+                            <div class="price-middle">4</div>
+                            <div class="price-right">5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-feature col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="item-box ">
+                    <div class="img-feature"><img src="/assets/img/product_sections/Cruise_205x178.png"></div>
+                    <div class="prod-name">Astral Cruise</div>
+                    <div class="prod-info">
+                        <button class="btn"><p>ADD TO CARD</p></button>
+                        <div class="price">
+                            <div class="price-left">$</div>
+                            <div class="price-middle">4</div>
+                            <div class="price-right">5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+</section>
+
+
+<section class="brands">
+    <div class="container">
+        <div class="brands-top">
+            <div class="brands-top-left">
+                <p>brands</p>
+            </div>
+            <div class="brands-top-center">
+                <!--<img src="/assets/img/featured_line.png">-->
+                <div class="brands-line"></div>
+                <div class="brands-line"></div>
+                <div class="brands-line"></div>
+                <div class="brands-line"></div>
+            </div>
+        </div>
+
+        <div class="brands-body">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="carousel slide multi-item-carousel" id="brandCarousel">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="col-xs-3"><a href="#"><img src="/assets/img/brands/apple-small.png" class="img-responsive"></a></div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-xs-3"><a href="#"><img src="/assets/img/brands/palm.png" class="img-responsive"></a></div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-xs-3"><a href="#"><img src="/assets/img/brands/adidas.png" class="img-responsive"></a></div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-xs-3"><a href="#"><img src="/assets/img/brands/boss.png" class="img-responsive"></a></div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="col-xs-3"><a href="#"><img src="/assets/img/brands/monkey.png" class="img-responsive"></a></div>
+                                </div>
+
+
+                            </div>
+                            <a class="carousel-control left" href="#brandCarousel" data-slide="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                            <a class="carousel-control right" href="#brandCarousel" data-slide="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- <footer class="footer">

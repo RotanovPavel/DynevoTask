@@ -12648,16 +12648,41 @@ $('#btn-middle').click(function () {
 //     return $(this).attr('p');
 // }).get();
     // $('.carousel-inner p').each(function (key, value) {
-        if ($(".item").hasClass("active")) {
-            var act = $(".active p").text();
-            $('.carousel-bottom-center p').text(act)
-            }
+
+$('#myCarousel').on('slid.bs.carousel', function () {
+    var act = $(".active p").text();
+    $('.carousel-bottom-center p').text(act);
+    $('.carousel-bottom-center p').hide();
+    $('.carousel-bottom-center p').fadeToggle(1500);
+});
+
+
 // })
 
-$('#btn-feature').click(function () {
-    $('.feature-bottom').slideToggle();
-})
+// $('#btn-feature').click(function () {
+//     $('.feature-bottom').slideToggle();
+// })
 
+
+$('.multi-item-carousel').carousel({
+    interval: 5000
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel .item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    if (next.next().length > 0) {
+        next.next().children(':first-child').clone().appendTo($(this));
+    } else {
+        $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+    }
+});
 //$(document).ready(function () {
 //  $('#laptops').click(function () {
 //     $('.dropdown-menu').slideToggle("slow");
