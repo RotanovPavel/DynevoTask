@@ -12630,6 +12630,181 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
+/*!
+ * Lazy Load - JavaScript plugin for lazy loading images
+ *
+ * Copyright (c) 2007-2017 Mika Tuupola
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Project home:
+ *   https://appelsiini.net/projects/lazyload
+ *
+ * Version: 2.0.0-beta.2
+ *
+ */
+
+(function (root, factory) {
+    if (typeof exports === "object") {
+        module.exports = factory(root);
+    } else if (typeof define === "function" && define.amd) {
+        define([], factory(root));
+    } else {
+        root.LazyLoad = factory(root);
+    }
+}) (typeof global !== "undefined" ? global : this.window || this.global, function (root) {
+
+    "use strict";
+
+    const defaults = {
+        src: "data-src",
+        srcset: "data-srcset",
+        selector: ".lazyload"
+    };
+
+    /**
+    * Merge two or more objects. Returns a new object.
+    * @private
+    * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+    * @param {Object}   objects  The objects to merge together
+    * @returns {Object}          Merged values of defaults and options
+    */
+    const extend = function ()  {
+
+        let extended = {};
+        let deep = false;
+        let i = 0;
+        let length = arguments.length;
+
+        /* Check if a deep merge */
+        if (Object.prototype.toString.call(arguments[0]) === "[object Boolean]") {
+            deep = arguments[0];
+            i++;
+        }
+
+        /* Merge the object into the extended object */
+        let merge = function (obj) {
+            for (let prop in obj) {
+                if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+                    /* If deep merge and property is an object, merge properties */
+                    if (deep && Object.prototype.toString.call(obj[prop]) === "[object Object]") {
+                        extended[prop] = extend(true, extended[prop], obj[prop]);
+                    } else {
+                        extended[prop] = obj[prop];
+                    }
+                }
+            }
+        };
+
+        /* Loop through each object and conduct a merge */
+        for (; i < length; i++) {
+            let obj = arguments[i];
+            merge(obj);
+        }
+
+        return extended;
+    };
+
+    function LazyLoad(images, options) {
+        this.settings = extend(defaults, options || {});
+        this.images = images || document.querySelectorAll(this.settings.selector);
+        this.observer = null;
+        this.init();
+    }
+
+    LazyLoad.prototype = {
+        init: function() {
+
+            /* Without observers load everything and bail out early. */
+            if (!root.IntersectionObserver) {
+                this.loadImages();
+                return;
+            }
+
+            let self = this;
+            let observerConfig = {
+                root: null,
+                rootMargin: "0px",
+                threshold: [0]
+            };
+
+            this.observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function (entry) {
+                    if (entry.intersectionRatio > 0) {
+                        self.observer.unobserve(entry.target);
+                        let src = entry.target.getAttribute(self.settings.src);
+                        let srcset = entry.target.getAttribute(self.settings.srcset);
+                        if ("img" === entry.target.tagName.toLowerCase()) {
+                            if (src) {
+                                entry.target.src = src;
+                            }
+                            if (srcset) {
+                                entry.target.srcset = srcset;
+                            }
+                        } else {
+                            entry.target.style.backgroundImage = "url(" + src + ")";
+                        }
+                    }
+                });
+            }, observerConfig);
+
+            this.images.forEach(function (image) {
+                self.observer.observe(image);
+            });
+        },
+
+        loadAndDestroy: function () {
+            if (!this.settings) { return; }
+            this.loadImages();
+            this.destroy();
+        },
+
+        loadImages: function () {
+            if (!this.settings) { return; }
+
+            let self = this;
+            this.images.forEach(function (image) {
+                let src = image.getAttribute(self.settings.src);
+                let srcset = image.getAttribute(self.settings.srcset);
+                if ("img" === image.tagName.toLowerCase()) {
+                    if (src) {
+                        image.src = src;
+                    }
+                    if (srcset) {
+                        image.srcset = srcset;
+                    }
+                } else {
+                    image.style.backgroundImage = "url(" + src + ")";
+                }
+            });
+        },
+
+        destroy: function () {
+            if (!this.settings) { return; }
+            this.observer.disconnect();
+            this.settings = null;
+        }
+    };
+
+    root.lazyload = function(images, options) {
+        return new LazyLoad(images, options);
+    };
+
+    if (root.jQuery) {
+        const $ = root.jQuery;
+        $.fn.lazyload = function (options) {
+            options = options || {};
+            options.attribute = options.attribute || "data-src";
+            new LazyLoad($.makeArray(this), options);
+            return this;
+        };
+    }
+
+    return LazyLoad;
+});
+
+
 
 $('#btn-top').click(function () {
     if ($(".navbar-ex2-collapse").hasClass("in")) {
@@ -12644,12 +12819,9 @@ $('#btn-middle').click(function () {
 });
 
 
-// var arrList = $('.carousel-inner .item p').map(function(){
-//     return $(this).attr('p');
-// }).get();
-    // $('.carousel-inner p').each(function (key, value) {
 
-$('#myCarousel').on('slid.bs.carousel', function () {
+
+$('#myCarousel').on('slide.bs.carousel', function () {
     var act = $(".active p").text();
     $('.carousel-bottom-center p').text(act);
     $('.carousel-bottom-center p').hide();
@@ -12657,32 +12829,34 @@ $('#myCarousel').on('slid.bs.carousel', function () {
 });
 
 
-// })
+$(document).ready(function () {
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 0,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        autoplay: {
+            delay: 5000
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar'
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    });
 
-// $('#btn-feature').click(function () {
-//     $('.feature-bottom').slideToggle();
-// })
-
-
-$('.multi-item-carousel').carousel({
-    interval: 5000
 });
+// $(document).ready(function () {
+//     $("div.lazy").lazyload({
+//         effect: "fadeIn"
+//     });
+// });
 
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    if (next.next().length > 0) {
-        next.next().children(':first-child').clone().appendTo($(this));
-    } else {
-        $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-    }
-});
 //$(document).ready(function () {
 //  $('#laptops').click(function () {
 //     $('.dropdown-menu').slideToggle("slow");

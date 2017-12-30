@@ -1,5 +1,7 @@
 //=require ../../bower_components/jquery/dist/jquery.js
 //=require ../../bower_components/bootstrap/dist/js/bootstrap.js
+//=require ../../node_modules/lazyload/lazyload.js
+
 
 $('#btn-top').click(function () {
     if ($(".navbar-ex2-collapse").hasClass("in")) {
@@ -14,12 +16,9 @@ $('#btn-middle').click(function () {
 });
 
 
-// var arrList = $('.carousel-inner .item p').map(function(){
-//     return $(this).attr('p');
-// }).get();
-    // $('.carousel-inner p').each(function (key, value) {
 
-$('#myCarousel').on('slid.bs.carousel', function () {
+
+$('#myCarousel').on('slide.bs.carousel', function () {
     var act = $(".active p").text();
     $('.carousel-bottom-center p').text(act);
     $('.carousel-bottom-center p').hide();
@@ -27,29 +26,30 @@ $('#myCarousel').on('slid.bs.carousel', function () {
 });
 
 
-// })
+$(document).ready(function () {
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 0,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        autoplay: {
+            delay: 5000
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar'
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    });
 
-// $('#btn-feature').click(function () {
-//     $('.feature-bottom').slideToggle();
-// })
-
-
-$('.multi-item-carousel').carousel({
-    interval: 5000
 });
-
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    if (next.next().length > 0) {
-        next.next().children(':first-child').clone().appendTo($(this));
-    } else {
-        $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-    }
-});
+// $(document).ready(function () {
+//     $("div.lazy").lazyload({
+//         effect: "fadeIn"
+//     });
+// });

@@ -1,6 +1,6 @@
 .brands {
   .container {
-    height: 427px;
+    //height: 427px;
     width: 940px;
 
     padding: 0;
@@ -47,7 +47,7 @@
         text-align: right;
         margin: 0;
         @media (max-width: 940px) {
-          width: calc(100% - 20px)  ;
+          width: calc(~"100% - 20px")  ;
         }
 
         .brands-line {
@@ -59,49 +59,51 @@
       }
     }
     .brands-body {
-
-      .multi-item-carousel {
-        a {
+      .swiper-container {
+        width: 100%;
+        .swiper-slide {
+          text-align: center;
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+        .swiper-button-next {
           background-image: none;
-          width: 5%;
-          color: #8c8c8c;
-          padding-top: 25px;
+          font-size: 20px;
+          color: #c1c1c1;
+          margin-top: -12px;
 
         }
-        .carousel-inner {
-          .item {
-            transition: 500ms ease-in-out left;
-            .img-responsive {
-              margin: 0 auto;
-            }
-          }
-          .active {
-            &.left {
-              left: -25%;
-            }
-            &.right {
-              left: 25%;
-            }
-          }
-          .next {
-            left: 25%;
-          }
-          .prev {
-            left: -25%;
-          }
-          @media all and (transform-3d), (-webkit-transform-3d) {
-            > .item {
-              // use your favourite prefixer here
-              // transition: 500ms ease-in-out left;
-              transition: 500ms ease-in-out all;
-              backface-visibility: visible;
-              transform: none !important;
-            }
-          }
-
+        .swiper-button-prev {
+          background-image: none;
+          font-size: 20px;
+          color: #c1c1c1;
+          margin-top: -12px;
+        }
+        .hover01  img {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transition: .3s ease-in-out;
+          transition: .3s ease-in-out;
+        }
+        .swiper-slide:hover img {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
         }
       }
+
     }
 
   }
+
 }
