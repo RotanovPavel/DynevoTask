@@ -1,17 +1,32 @@
 .footer-info {
-  background: url(/assets/img/bg_footer_suspendisse.png) repeat 0 0;
+  background: url(/assets/img/bg_footer_info.png) repeat 0 0;
   height: 143px;
   width: 100%;
+  margin-top: 30px;
   .container {
     width: 940px;
     padding: 0;
     margin: 0 auto;
-    background: url(/assets/img/bg_footer_suspendisse.png) repeat 0 0;
+    background: url(/assets/img/bg_footer_info.png) repeat 0 0;
+    @media (max-width: 940px) {
+      width: auto;
+      margin-left: 0;
+      padding-left: 15px;
+
+    }
     .info-sed {
       display: inline-block;
       width: 300px;
       height: 100%;
       margin: 0 10px;
+      @media (max-width: 940px) {
+        width: 100%;
+        display: block;
+        float: left;
+        margin: 0 ;
+        padding-right: 20px;
+
+      }
       .info-head {
 
         .info-icon {
@@ -20,7 +35,6 @@
           width: 20px;
           height: 100%;
           margin-top: 15px;
-
 
         }
         h4 {
@@ -38,12 +52,23 @@
       &:last-child {
         float: right;
         margin-right: 0;
+        @media (max-width: 940px) {
+          display: block;
+          float: left;
+          margin: 0 100% 0 0;
+
+        }
 
       }
 
       .info-desc {
         margin-left: 25px;
         width: 270px;
+        @media (max-width: 940px) {
+          width: 99%;
+          padding-right: 20px;
+
+        }
 
         p {
           font-family: 'TerminalDosis Book', sans-serif;
@@ -51,9 +76,18 @@
           color: #9f8f68;
           text-align: justify;
 
-
         }
       }
     }
+  }
+
+}
+
+.info-bottom {
+  background-color: #d4ccb0;
+  height: 5px;
+  width: 100%;
+  @media (max-width: 940px) {
+    display: flex;
   }
 }
